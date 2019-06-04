@@ -1,14 +1,12 @@
 <section class="listing-item{% if group_members.size > 0 %} double-image{% endif %} alternating">
 	<div class="image">	
-		<figure>
-			{% if group_members.size > 0 %}
-				{% for member in group_members %}
-					<a href="{{ member.url }}"><img src="/images/people/{{ member.photo }}" /></a>
-				{% endfor %}
-			{% else %}
-				<a href="{{ resident.url }}"><img src="/images/people/{{ resident.photo }}" /></a>
-			{% endif %}
-		</figure>
+		{% if group_members.size > 0 %}
+			{% for member in group_members %}
+				<figure><a href="{{ member.url }}"><img src="/images/people/{{ member.photo }}" /></a></figure>
+			{% endfor %}
+		{% else %}
+			<figure><a href="{{ resident.url }}"><img src="/images/people/{{ resident.photo }}" /></a></figure>
+		{% endif %}
 	</div>
 	<div class="text">
 		<h2><a href="{{ resident.url }}">{{ resident.name }}</a></h2>
